@@ -42,6 +42,11 @@
 	#define USE_PLATFORM_DRIVER
 #endif
 
+/*Replace strnicmp with strncasecmp on 4.x kernels */
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 0, 0))
+        #define strnicmp strncasecmp
+#endif
+
 static unsigned long nvidiabl_ignore_device = 0;
 static long off = NVIDIABL_UNSET;
 static long min = NVIDIABL_UNSET;
